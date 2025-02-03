@@ -4,14 +4,28 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>VTR Framework DataBase EF</Title>
+    <Authors>Vitor Esteves dos Santos</Authors>
+    <UserSecretsId>ed065bc3-0296-44f7-8791-317b82c34d39</UserSecretsId>
+    <AssemblyName>VTR.Framework.DataBase.EF</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright © Vitor Esteves dos Santos 2025</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageId>VTRFramework.DataBaseEF</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.12" />
+    <PackageReference Include="VTRFramework.Domain" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VTR.Framework.Domain\VTR.Framework.Domain.csproj" />
+    <None Include="..\..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

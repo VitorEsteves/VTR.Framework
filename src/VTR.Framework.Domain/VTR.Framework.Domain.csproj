@@ -4,10 +4,28 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>VTR Framework Domain</Title>
+    <Authors>Vitor Esteves dos Santos</Authors>
+    <UserSecretsId>ed065bc3-0296-44f7-8791-317b82c34d39</UserSecretsId>
+    <AssemblyName>VTR.Framework.Domain</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright © Vitor Esteves dos Santos 2025</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageId>VTRFramework.Domain</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
