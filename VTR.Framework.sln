@@ -5,13 +5,15 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C10F44CC-EE12-4B2E-91A1-3170008E5284}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.Framework.Domain", "src\VTR.Framework.Domain\VTR.Framework.Domain.csproj", "{F9EB8167-8659-41B9-AE79-24342B6D9592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTR.Framework.Domain", "src\VTR.Framework.Domain\VTR.Framework.Domain.csproj", "{F9EB8167-8659-41B9-AE79-24342B6D9592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.Framework.DataBase.EF", "src\VTR.Framework.DataBase.EF\VTR.Framework.DataBase.EF.csproj", "{3D0C74A4-E77A-4011-90D3-7291E798ECE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTR.Framework.DataBase.EF", "src\VTR.Framework.DataBase.EF\VTR.Framework.DataBase.EF.csproj", "{3D0C74A4-E77A-4011-90D3-7291E798ECE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.Framework.Application", "src\VTR.Framework.Application\VTR.Framework.Application.csproj", "{C110F6DB-243C-46D2-87C7-4D1962CF64A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTR.Framework.Application", "src\VTR.Framework.Application\VTR.Framework.Application.csproj", "{C110F6DB-243C-46D2-87C7-4D1962CF64A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.Framework.WebApplication", "src\VTR.Framework.WebApplication\VTR.Framework.WebApplication.csproj", "{A1825AF7-9985-4B7E-9828-F4F1B5AF2321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VTR.Framework.WebApplication", "src\VTR.Framework.WebApplication\VTR.Framework.WebApplication.csproj", "{A1825AF7-9985-4B7E-9828-F4F1B5AF2321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.Framework.Common", "src\VTR.Framework.Common\VTR.Framework.Common.csproj", "{22FE0FB6-8873-40EB-8998-6EB551F013E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{A1825AF7-9985-4B7E-9828-F4F1B5AF2321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1825AF7-9985-4B7E-9828-F4F1B5AF2321}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1825AF7-9985-4B7E-9828-F4F1B5AF2321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22FE0FB6-8873-40EB-8998-6EB551F013E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22FE0FB6-8873-40EB-8998-6EB551F013E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22FE0FB6-8873-40EB-8998-6EB551F013E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22FE0FB6-8873-40EB-8998-6EB551F013E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{3D0C74A4-E77A-4011-90D3-7291E798ECE8} = {C10F44CC-EE12-4B2E-91A1-3170008E5284}
 		{C110F6DB-243C-46D2-87C7-4D1962CF64A5} = {C10F44CC-EE12-4B2E-91A1-3170008E5284}
 		{A1825AF7-9985-4B7E-9828-F4F1B5AF2321} = {C10F44CC-EE12-4B2E-91A1-3170008E5284}
+		{22FE0FB6-8873-40EB-8998-6EB551F013E3} = {C10F44CC-EE12-4B2E-91A1-3170008E5284}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E5DAF77-5BD1-49F3-B882-020191DE16FF}
