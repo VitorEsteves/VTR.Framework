@@ -66,10 +66,17 @@ public class ApiControllerBase<T>(
     }
 
     [NonAction]
-    public IActionResult BadRequestWithException(Exception ex)
+    public IActionResult BadRequestWithException(Exception? ex)
     {
-        var newEx = new HttpRequestException("An internal server error", ex);
+        var stringBuilder = new StringBuilder();
 
-        return base.BadRequest(new { OperationResult = new OperationResult("An unexpected error occurred", newEx) });
+        while (ex != null)
+        {
+            stringBuilder.AppendLine(ex.Message);
+            ex = ex.InnerException;
+        }
+
+        return base.BadRequest(
+            new { OperationResult = new OperationResult(stringBuilder.ToString(), MessageType.Error) });
     }
 }
