@@ -1,4 +1,5 @@
-﻿namespace VTR.Framework.API;
+﻿
+namespace VTR.Framework.API;
 
 [Authorize("Bearer")]
 public class ApiControllerAuthorizeBase<T>(
@@ -68,6 +69,8 @@ public class ApiControllerBase<T>(
     [NonAction]
     public IActionResult BadRequestWithException(Exception ex)
     {
-        return base.BadRequest(new { OperationResult = new OperationResult("An unexpected error occurred", ex) });
+        var newEx = new HttpRequestException(ex);
+
+        return base.BadRequest(new { OperationResult = new OperationResult("An unexpected error occurred", newEx) });
     }
 }
