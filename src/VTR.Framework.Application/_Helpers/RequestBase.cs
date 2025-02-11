@@ -2,14 +2,21 @@
 
 public class RequestBase<TResponse> : IRequest<TResponse>
 {
+    [Obsolete]
     public TResponse CreateResponseErrorUnavailableService()
     {
         return CreateResponse(new OperationResult("Service unavailable", MessageType.Error));
     }
 
+    [Obsolete]
     public TResponse CreateResponseErrorRegisterNotFound(string name)
     {
         return CreateResponse(new OperationResult($"Record for '{name}' not found", MessageType.Error));
+    }
+
+    public TResponse CreateResponseError(string message)
+    {
+        return CreateResponse(new OperationResult(message, MessageType.Error));
     }
 
     public TResponse CreateResponseSuccess(string message)
