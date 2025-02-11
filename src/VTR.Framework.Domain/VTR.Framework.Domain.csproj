@@ -9,14 +9,14 @@
     <Authors>Vitor Esteves dos Santos</Authors>
     <UserSecretsId>ed065bc3-0296-44f7-8791-317b82c34d39</UserSecretsId>
     <AssemblyName>VTR.Framework.Domain</AssemblyName>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright © Vitor Esteves dos Santos 2025</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageId>VTRFramework.Domain</PackageId>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
