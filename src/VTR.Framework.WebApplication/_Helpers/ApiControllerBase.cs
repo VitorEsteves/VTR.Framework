@@ -25,6 +25,9 @@ public class ApiControllerBase<T>(
         {
             var response = await ApplicationManager.DispatchQueryAsync(request, cancellationToken);
 
+            if ((response is ResponseBase responseBase) && responseBase.OperationResult.MessageType != MessageType.Success)
+                return BadRequest(response);
+
             return base.Ok(response);
         }
         catch (Exception ex)
@@ -40,6 +43,9 @@ public class ApiControllerBase<T>(
         try
         {
             var response = await ApplicationManager.DispatchCommandAsync(request, cancellationToken);
+
+            if ((response is ResponseBase responseBase) && responseBase.OperationResult.MessageType != MessageType.Success)
+                return BadRequest(response);
 
             return base.Ok(response);
         }
@@ -57,6 +63,9 @@ public class ApiControllerBase<T>(
         {
             var response = await ApplicationManager.DispatchTransactionCommandAsync(request, cancellationToken);
 
+            if ((response is ResponseBase responseBase) && responseBase.OperationResult.MessageType != MessageType.Success)
+                return BadRequest(response);
+
             return base.Ok(response);
         }
         catch (Exception ex)
@@ -66,10 +75,18 @@ public class ApiControllerBase<T>(
     }
 
     [NonAction]
-    public IActionResult BadRequestWithException(Exception ex)
+    public IActionResult BadRequestWithException(Exception? ex)
     {
-        var newEx = new HttpRequestException("An internal server error", ex);
+        StringBuilder stringBuilder = new();
+        while (ex != null)
+        {
+            stringBuilder.AppendLine(ex.Message);
+            ex = ex.InnerException;
+        }
 
-        return base.BadRequest(new { OperationResult = new OperationResult("An unexpected error occurred", newEx) });
+        return base.BadRequest(new
+        {
+            OperationResult = new OperationResult(stringBuilder.ToString(), MessageType.Error)
+        });
     }
 }

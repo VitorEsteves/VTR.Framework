@@ -7,4 +7,6 @@ public interface IUnitOfWork : IDisposable
     Task CommitAsync(CancellationToken cancellationToken);
 
     Task RollbackAsync(CancellationToken cancellationToken);
+
+    IEntityRepository<TEntity> GetEntityRepository<TEntity>(CancellationToken cancellationToken) where TEntity : Entity;
 }
