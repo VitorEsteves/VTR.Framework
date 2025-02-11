@@ -1,4 +1,4 @@
-﻿namespace VTR.Framework.API;
+﻿namespace VTR.Framework.WebApplication;
 
 public class TokenConfigurations
 {
