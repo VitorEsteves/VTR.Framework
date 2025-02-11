@@ -2,12 +2,6 @@
 
 public class OperationResult(string message, MessageType severityMessage)
 {
-    public OperationResult(string message, Exception exception)
-        : this(message, MessageType.Error)
-    {
-        Exception = exception;
-    }
-
     public OperationResult(List<ValidationMessage> validations)
         : this("Validation error", MessageType.ValidationFailure)
     {
@@ -25,8 +19,6 @@ public class OperationResult(string message, MessageType severityMessage)
     public string? MessageCode { get; protected set; }
 
     public MessageType MessageType { get; protected set; } = severityMessage;
-
-    public Exception? Exception { get; protected set; }
 
     public List<ValidationMessage>? Validations { get; protected set; }
 
