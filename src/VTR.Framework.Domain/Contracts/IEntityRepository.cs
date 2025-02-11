@@ -18,6 +18,8 @@ public interface IEntityRepository<TEntity> where TEntity : Entity
 
     Task<List<TEntity>> ListAsync();
 
+    Task<List<TEntity>> ListAsync<TProperty>(Expression<Func<TEntity, TProperty>> include);
+
     Task<List<TEntity>> ListByIdsAsync(IEnumerable<Guid> id);
 
     Task<List<TEntity>> ListByAsync(Expression<Func<TEntity, bool>> predicate);
