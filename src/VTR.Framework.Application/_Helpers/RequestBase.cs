@@ -1,4 +1,6 @@
-﻿namespace VTR.Framework.Application.Contracts;
+﻿using MediatR;
+
+namespace VTR.Framework.Application.Contracts;
 
 public class RequestBase<TResponse> : IRequest<TResponse>
 {
@@ -27,6 +29,11 @@ public class RequestBase<TResponse> : IRequest<TResponse>
     public TResponse CreateResponseWarning(string message)
     {
         return CreateResponse(new OperationResult(message, MessageType.Warning));
+    }
+
+    public TResponse CreateResponseValidationFailed(string failureMessage, string? propertyName)
+    {
+        return CreateResponse([new(failureMessage, propertyName)]);
     }
 
     public TResponse CreateResponse(List<ValidationFailure> validationFailures)
