@@ -4,5 +4,7 @@ public interface ICryptoAppService
 {
     string? Encrypt(string? value);
 
-    string GenerateNumberPassword(int length);
+    string GenerateRandomNumber(int length);
+
+    string HideCharactersEmail(string email);
 }
