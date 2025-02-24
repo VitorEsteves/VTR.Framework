@@ -8,8 +8,8 @@ public class OperationResult(string message, MessageType severityMessage)
         Validations = validations;
     }
 
-    public OperationResult(string message, string messageCode)
-        : this(message, MessageType.Warning)
+    public OperationResult(string message, string? messageCode, MessageType messageType)
+        : this(message, messageType)
     {
         MessageCode = messageCode;
     }
@@ -22,11 +22,34 @@ public class OperationResult(string message, MessageType severityMessage)
 
     public List<ValidationMessage>? Validations { get; protected set; }
 
-    public static OperationResult Success(string message)
+    public List<InfoMessage>? Infos { get; protected set; }
+
+    public void AddInfo(string message)
     {
-        return new OperationResult(message, MessageType.Success);
+        Infos ??= [];
+        Infos.Add(new InfoMessage(message));
     }
 
+    public static OperationResult CreateSuccess(string message, string? messageCode = null)
+    {
+        return new OperationResult(message, messageCode, MessageType.Success);
+    }
+
+    public static OperationResult CreateWarning(string message, string? messageCode = null)
+    {
+        return new OperationResult(message, messageCode, MessageType.Warning);
+    }
+
+    public static OperationResult CreateError(string message, string? messageCode = null)
+    {
+        return new OperationResult(message, messageCode, MessageType.Error);
+    }
+
+    public static OperationResult CreateValidationFailed(string propertyName, string failureMessage)
+    {
+        return new OperationResult([new(failureMessage, propertyName)]);
+    }
+    
     public static OperationResult Create(object instance, string successMessage)
     {
         var validationsResult = new List<ValidationResult>();
