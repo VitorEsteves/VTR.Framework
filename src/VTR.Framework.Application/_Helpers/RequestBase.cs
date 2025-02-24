@@ -18,22 +18,22 @@ public class RequestBase<TResponse> : IRequest<TResponse>
 
     public TResponse CreateResponseError(string message)
     {
-        return CreateResponse(new OperationResult(message, MessageType.Error));
+        return CreateResponse(OperationResult.CreateError(message));
     }
 
     public TResponse CreateResponseSuccess(string message)
     {
-        return CreateResponse(new OperationResult(message, MessageType.Success));
+        return CreateResponse(OperationResult.CreateSuccess(message));
     }
 
     public TResponse CreateResponseWarning(string message)
     {
-        return CreateResponse(new OperationResult(message, MessageType.Warning));
+        return CreateResponse(OperationResult.CreateWarning(message));
     }
 
     public TResponse CreateResponseValidationFailed(string failureMessage, string? propertyName)
     {
-        return CreateResponse([new(failureMessage, propertyName)]);
+        return CreateResponse(OperationResult.CreateValidationFailed(failureMessage, propertyName));
     }
 
     public TResponse CreateResponse(List<ValidationFailure> validationFailures)
