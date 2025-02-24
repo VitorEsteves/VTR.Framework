@@ -45,7 +45,7 @@ public class OperationResult(string message, MessageType severityMessage)
         return new OperationResult(message, messageCode, MessageType.Error);
     }
 
-    public static OperationResult CreateValidationFailed(string propertyName, string failureMessage)
+    public static OperationResult CreateValidationFailed(string failureMessage, string? propertyName)
     {
         return new OperationResult([new(failureMessage, propertyName)]);
     }
