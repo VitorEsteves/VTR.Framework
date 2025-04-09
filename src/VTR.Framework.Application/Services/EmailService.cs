@@ -69,7 +69,7 @@ public class EmailService(SmtpClient smtpClient) : IEmailService
                 Subject = email.Subject,
                 Body = email.PlaintextAlternativeBody,
                 IsBodyHtml = false,
-                From = new MailAddress(email.FromAddress.EmailAddress, email.FromAddress.Name)
+                From = new MailAddress(email.FromAddress.Email, email.FromAddress.Name)
             };
 
             var mimeType = new ContentType("text/html; charset=UTF-8");
@@ -85,7 +85,7 @@ public class EmailService(SmtpClient smtpClient) : IEmailService
                 IsBodyHtml = email.IsHtml,
                 BodyEncoding = Encoding.UTF8,
                 SubjectEncoding = Encoding.UTF8,
-                From = new MailAddress(email.FromAddress.EmailAddress, email.FromAddress.Name)
+                From = new MailAddress(email.FromAddress.Email, email.FromAddress.Name)
             };
         }
 
@@ -96,22 +96,22 @@ public class EmailService(SmtpClient smtpClient) : IEmailService
 
         email.ToAddresses.ForEach(x =>
         {
-            message.To.Add(new MailAddress(x.EmailAddress, x.Name));
+            message.To.Add(new MailAddress(x.Email, x.Name));
         });
 
         email.CcAddresses.ForEach(x =>
         {
-            message.CC.Add(new MailAddress(x.EmailAddress, x.Name));
+            message.CC.Add(new MailAddress(x.Email, x.Name));
         });
 
         email.BccAddresses.ForEach(x =>
         {
-            message.Bcc.Add(new MailAddress(x.EmailAddress, x.Name));
+            message.Bcc.Add(new MailAddress(x.Email, x.Name));
         });
 
         email.ReplyToAddresses.ForEach(x =>
         {
-            message.ReplyToList.Add(new MailAddress(x.EmailAddress, x.Name));
+            message.ReplyToList.Add(new MailAddress(x.Email, x.Name));
         });
 
         switch (email.Priority)

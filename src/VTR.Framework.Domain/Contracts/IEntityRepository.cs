@@ -12,7 +12,11 @@ public interface IEntityRepository<TEntity> where TEntity : Entity
 
     Task<TEntity?> GetByIdAsync(Guid? id);
 
+    Task<TEntity?> GetByIdAsync<TProperty>(Guid? id, Expression<Func<TEntity, TProperty>> include);
+
     Task<TEntity?> GetByAsync(Expression<Func<TEntity, bool>> predicate);
+
+    Task<TEntity?> GetByAsync<TProperty>(Expression<Func<TEntity, bool>> predicate, Expression<Func<TEntity, TProperty>> include);
 
     Task<bool> ExistAsync(Expression<Func<TEntity, bool>> predicate);
 
@@ -21,6 +25,8 @@ public interface IEntityRepository<TEntity> where TEntity : Entity
     Task<List<TEntity>> ListAsync<TProperty>(Expression<Func<TEntity, TProperty>> include);
 
     Task<List<TEntity>> ListByIdsAsync(IEnumerable<Guid> id);
+
+    Task<List<TEntity>> ListByIdsAsync<TProperty>(IEnumerable<Guid> id, Expression<Func<TEntity, TProperty>> include);
 
     Task<List<TEntity>> ListByAsync(Expression<Func<TEntity, bool>> predicate);
 

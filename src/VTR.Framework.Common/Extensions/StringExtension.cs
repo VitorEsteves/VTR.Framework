@@ -90,4 +90,14 @@ public static class StringExtension
 
         return string.Join(' ', values);
     }
+
+    public static string ReplaceToEmpty(this string value, params string[] oldValues)
+    {
+        foreach (string oldValue in oldValues)
+        {
+            value = value.Replace(oldValue, string.Empty);
+        }
+
+        return value;
+    }
 }

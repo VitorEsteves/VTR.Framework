@@ -1,13 +1,13 @@
 ﻿namespace VTR.Framework.Domain.Email;
 
-public class EMailAddress(string emailAddress, string? name = null)
+public class EmailAddress(string email, string? name = null)
 {
     public string? Name { get; set; } = name;
-    public string EmailAddress { get; set; } = emailAddress;
+    public string Email { get; set; } = email;
 
     public override string ToString()
     {
-        return Name == null ? EmailAddress : $"{Name} <{EmailAddress}>";
+        return Name == null ? Email : $"{Name} <{Email}>";
     }
 
     public override int GetHashCode()
@@ -23,8 +23,8 @@ public class EMailAddress(string emailAddress, string? name = null)
         }
         else
         {
-            EMailAddress otherAddress = (EMailAddress)obj;
-            return this.EmailAddress == otherAddress.EmailAddress && this.Name == otherAddress.Name;
+            EmailAddress otherAddress = (EmailAddress)obj;
+            return this.Email == otherAddress.Email && this.Name == otherAddress.Name;
         }
     }
 }
