@@ -1,11 +1,27 @@
-﻿namespace VTR.Framework.WebApplication;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace VTR.Framework.WebApplication;
 
 [Authorize("Bearer")]
 public class ApiControllerAuthorizeBase<T>(
     ILogger<T> logger,
+    IHttpContextAccessor accessor,
     IApplicationManager applicationManager) : ApiControllerBase<T>(logger, applicationManager)
 {
-
+    [NonAction]
+    public bool CheckRoles(params string[] roles)
+    {
+        var context = accessor.HttpContext;
+        if (context != null)
+        {
+            foreach (var role in roles)
+            {
+                if (context.User.IsInRole(role))
+                    return true;
+            }
+        }
+        return false;
+    }
 }
 
 [ApiController]
