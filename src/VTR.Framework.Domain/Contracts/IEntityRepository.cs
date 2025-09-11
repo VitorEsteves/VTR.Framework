@@ -24,9 +24,9 @@ public interface IEntityRepository<TEntity> where TEntity : Entity
 
     Task<List<TEntity>> ListAsync<TProperty>(Expression<Func<TEntity, TProperty>> include);
 
-    Task<List<TEntity>> ListByIdsAsync(IEnumerable<Guid> id);
+    Task<List<TEntity>> ListByIdsAsync(IEnumerable<Guid> ids);
 
-    Task<List<TEntity>> ListByIdsAsync<TProperty>(IEnumerable<Guid> id, Expression<Func<TEntity, TProperty>> include);
+    Task<List<TEntity>> ListByIdsAsync<TProperty>(IEnumerable<Guid> ids, Expression<Func<TEntity, TProperty>> include);
 
     Task<List<TEntity>> ListByAsync(Expression<Func<TEntity, bool>> predicate);
 
